@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
 import Card from "../components/Card"
+import LoadingAnimation from "../components/LoadingAnimation"
 
 const Favorites = () => {
 
@@ -31,25 +32,18 @@ const Favorites = () => {
 
   if(!favoriteMovies){
     return(
-      <p>Loading</p>
+      <LoadingAnimation/>
     )
   }
-
 
   return(
     <>
       <NavBar/>
       <h1>Favorites</h1>
-      <section className="d-flex flex-row flex-wrap">
+      <section className="d-flex flex-row flex-wrap justify-content-center">
         {favoriteMovies.map((movie) => {
           return(
-            <Card
-              movieTitle = {movie.title}
-              movieImage = {movie.backdrop_path}
-              movieDescription = {movie.overview}
-              movieYear = {movie.release_date}
-              movie = {movie}
-            />
+            <Card movie = {movie}/>
           )
         })}
       </section>

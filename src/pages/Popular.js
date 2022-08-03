@@ -1,6 +1,7 @@
 import Card from "../components/Card"
 import NavBar from "../components/NavBar"
 import { useEffect, useState } from "react"
+import LoadingAnimation from "../components/LoadingAnimation"
 
 const Popular = () => {
 
@@ -19,7 +20,7 @@ const Popular = () => {
 
   if(!movies){
     return(
-      <p>Loading</p>
+      <LoadingAnimation/>
     )
   }
 
@@ -28,16 +29,10 @@ const Popular = () => {
       <NavBar/>
       <h1>Popular</h1>
 
-      <section className="d-flex flex-row flex-wrap">
+      <section className="d-flex flex-row flex-wrap justify-content-center">
         {movies.results.map((movie) => {
           return(
-            <Card
-              movieImage = {movie.backdrop_path}
-              movieTitle = {movie.title}
-              movieYear = {movie.release_date}
-              movieDescription ={movie.overview}
-              movie = {movie}
-            />
+            <Card movie = {movie}/>
           )
         })}
       </section>
