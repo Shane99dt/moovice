@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
 import Card from "../components/Card"
 import LoadingAnimation from "../components/LoadingAnimation"
+import PageTitle from "../components/PageTitle"
 
 const Favorites = () => {
 
@@ -39,11 +40,14 @@ const Favorites = () => {
   return(
     <>
       <NavBar/>
-      <h1>Favorites</h1>
+      <PageTitle title={"favorites"} />
       <section className="d-flex flex-row flex-wrap justify-content-center">
         {favoriteMovies.map((movie) => {
           return(
-            <Card movie = {movie}/>
+            <Card
+              movie = {movie}
+              btnHandle = {"Remove from Favorites"}
+            />
           )
         })}
       </section>

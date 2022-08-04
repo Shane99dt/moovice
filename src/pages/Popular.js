@@ -2,6 +2,7 @@ import Card from "../components/Card"
 import NavBar from "../components/NavBar"
 import { useEffect, useState } from "react"
 import LoadingAnimation from "../components/LoadingAnimation"
+import PageTitle from "../components/PageTitle"
 
 const Popular = () => {
 
@@ -27,12 +28,14 @@ const Popular = () => {
   return(
     <>
       <NavBar/>
-      <h1>Popular</h1>
-
+      <PageTitle title={"popular"}/>
       <section className="d-flex flex-row flex-wrap justify-content-center">
         {movies.results.map((movie) => {
           return(
-            <Card movie = {movie}/>
+            <Card
+              movie = {movie}
+              btnHandle = {"Add to favorites"}
+            />
           )
         })}
       </section>
