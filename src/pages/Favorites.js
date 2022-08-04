@@ -14,22 +14,41 @@ const Favorites = () => {
     if(localStorage.favoriteIds){
       const localStorageIds= localStorage.getItem("favoriteIds")
       favoriteIdsArray = JSON.parse(localStorageIds)
-
-      const favorite = [...favoriteMovies]
-
-      favoriteIdsArray.map((id) => {
-        fetchFavs(id, favorite)
-      })
+      fetchFavs(favoriteIdsArray)
     }
   }, [])
 
-  const fetchFavs = async (id, favorite) => {
+
+  // Fetch a movie by id
+  const fetchMovie = async (id) => {
     const request = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=8bf0372ddd1eb53a0909b7e274ee5973`)
     const response = await request.json()
-
-    favorite.push(response)
-    setFavoriteMovies(favorite)
+    return response
   }
+
+  // Get all movies fetched by id
+  const fetchFavs = async (idsArray) => {
+    const promises = idsArray.map((id) => {
+      return fetchMovie(id)
+    })
+
+    const promiseAll = await Promise.all(promises)
+    setFavoriteMovies(promiseAll)
+  }
+
+  // handleClick remove favs
+  // const handleClickRemoveFavorites = (id) => {
+  //   let favorites = []
+
+  //   const localStorageIds= localStorage.getItem("favoriteIds")
+  //   favorites = JSON.parse(localStorageIds)
+
+  //   favorites.splice(favorites.indexOf(id), 1)
+
+  //   const stringifiedIds = JSON.stringify(favorites)
+  //   localStorage.setItem('favoriteIds', stringifiedIds)
+  //   fetchFavs(favorites)
+  // }
 
   if(!favoriteMovies){
     return(
@@ -47,6 +66,7 @@ const Favorites = () => {
             <Card
               movie = {movie}
               btnHandle = {"Remove from Favorites"}
+              // removeFav = {handleClickRemoveFavorites(movie.id)}
             />
           )
         })}

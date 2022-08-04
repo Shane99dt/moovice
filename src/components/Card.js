@@ -34,10 +34,7 @@ const Card = (props) => {
 
     const stringifiedIds = JSON.stringify(favorites)
     localStorage.setItem('favoriteIds', stringifiedIds)
-
   }
-
-
 
 
   return(
@@ -50,7 +47,8 @@ const Card = (props) => {
           <p className="card-text">{props.movie.overview}</p>
         </div>
         <button className="btn btn-primary mb-3 card-button"
-          onClick={()=> handleClickAddToFavorites(props.movie.id)}>{props.btnHandle}</button>
+          onClick={()=> {props.btnHandle === "Add to favorites" ? (handleClickAddToFavorites(props.movie.id)) : (handleClickRemoveFavorites(props.movie.id))}}
+          >{props.btnHandle}</button>
       </div>
     </>
   )
