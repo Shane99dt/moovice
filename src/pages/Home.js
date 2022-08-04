@@ -33,10 +33,10 @@ const Home = () => {
   return(
     <>
       <PageTitle title={"home"}/>
-      <section className="movie-bar top-rated d-flex flex-row">
+      <section className="movie-bar top-rated d-flex flex-row align-items-center">
         {topRated.map((movie) => {
           return(
-            <SmallCard movie={movie} />
+            <SmallCard movie={movie} key={movie.title}/>
           )
         })}
       </section>

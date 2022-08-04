@@ -35,20 +35,6 @@ const Favorites = () => {
     setFavoriteMovies(promiseAll)
   }
 
-  // handleClick remove favs
-  // const handleClickRemoveFavorites = (id) => {
-  //   let favorites = []
-
-  //   const localStorageIds= localStorage.getItem("favoriteIds")
-  //   favorites = JSON.parse(localStorageIds)
-
-  //   favorites.splice(favorites.indexOf(id), 1)
-
-  //   const stringifiedIds = JSON.stringify(favorites)
-  //   localStorage.setItem('favoriteIds', stringifiedIds)
-  //   fetchFavs(favorites)
-  // }
-
   if(!favoriteMovies){
     return(
       <LoadingAnimation/>
@@ -65,7 +51,7 @@ const Favorites = () => {
               key ={movie.title}
               movie = {movie}
               btnHandle = {"Remove from Favorites"}
-              // removeFav = {handleClickRemoveFavorites(movie.id)}
+              fetchFavs = {fetchFavs}
             />
           )
         })}

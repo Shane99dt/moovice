@@ -5,21 +5,21 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-sm navbar-light">
         <Link to={`/`} className="btn font-weight-bold pr-4 navbar-brand">Moovice</Link>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav">
+            <li className="nav-item">
             <Link to={`/`} className="btn font-weight-bold pr-4 nav-link">Home</Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
             <Link to={`/weekly`} className="btn font-weight-bold pr-4 nav-link">Weekly</Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
             <Link to={`/popular`} className="btn font-weight-bold pr-4 nav-link">Popular</Link>
             </li>
-            <li class="nav-item">
+            <li className="nav-item">
               <Link to={`/favorites`} className="btn font-weight-bold pr-4 nav-link">Favorites</Link>
             </li>
           </ul>

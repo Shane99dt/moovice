@@ -1,7 +1,7 @@
 
 const Card = (props) => {
 
-  const handleClickAddToFavorites = (currentId) =>{
+  const handleClickAddToFavorites = () =>{
 
     let favorites = []
 
@@ -11,11 +11,11 @@ const Card = (props) => {
     }
 
     const checkId = favorites.find((id)=>{
-      return (id === currentId)
+      return (id === props.movie.id)
     })
 
     if(!checkId){
-      favorites.push(currentId)
+      favorites.push(props.movie.id)
     }
 
     const stringifiedIds = JSON.stringify(favorites)
@@ -23,16 +23,17 @@ const Card = (props) => {
   }
 
   // handle remove favorites
-  const handleClickRemoveFavorites = (id) => {
+  const handleClickRemoveFavorites = () => {
     let favorites = []
 
     const localStorageIds= localStorage.getItem("favoriteIds")
     favorites = JSON.parse(localStorageIds)
 
-    favorites.splice(favorites.indexOf(id), 1)
+    favorites.splice(favorites.indexOf(props.movie.id), 1)
 
     const stringifiedIds = JSON.stringify(favorites)
     localStorage.setItem('favoriteIds', stringifiedIds)
+    props.fetchFavs(favorites)
   }
 
 
@@ -46,7 +47,7 @@ const Card = (props) => {
           <p className="card-text">{props.movie.overview}</p>
         </div>
         <button className="btn btn-primary mb-3 card-button"
-          onClick={()=> {props.btnHandle === "Add to favorites" ? (handleClickAddToFavorites(props.movie.id)) : (handleClickRemoveFavorites(props.movie.id))}}
+          onClick={()=> {props.btnHandle === "Add to favorites" ? (handleClickAddToFavorites()) : (handleClickRemoveFavorites())}}
           >{props.btnHandle}</button>
       </div>
     </>
