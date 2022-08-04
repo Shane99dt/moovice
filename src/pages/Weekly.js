@@ -19,7 +19,7 @@ const Weekly = () => {
     setMOvies(response.results)
   }
 
-  if(movies){
+  if(!movies){
     return(
       <LoadingAnimation/>
     )
