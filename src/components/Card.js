@@ -22,7 +22,7 @@ const Card = (props) => {
     localStorage.setItem('favoriteIds', stringifiedIds)
   }
 
-  // ahndle remove favorites
+  // handle remove favorites
   const handleClickRemoveFavorites = (id) => {
     let favorites = []
 

@@ -1,6 +1,8 @@
 const LoadingAnimation = () => {
   return(
-    <span class="loader"><span class="loader-inner"></span></span>
+    <section className="loader-sec">
+      <span className="loader"><span className="loader-inner"></span></span>
+    </section>
   )
 }
 
