@@ -42,7 +42,7 @@ const Card = (props) => {
         <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`} alt={`background ${props.movie.title}`}/>
         <div className="card-body">
           <h2 className="card-title text-capitalize">{props.movie.title}</h2>
-          <p className="card-text font-weight-bold">{props.movie.release_date}</p>
+          <p className="card-text font-weight-bold">Released: {props.movie.release_date}</p>
           <p className="card-text">{props.movie.overview}</p>
         </div>
         <button className="btn btn-primary mb-3 card-button"
