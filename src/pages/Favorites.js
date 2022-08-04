@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import NavBar from "../components/NavBar"
 import Card from "../components/Card"
 import LoadingAnimation from "../components/LoadingAnimation"
 import PageTitle from "../components/PageTitle"
@@ -58,12 +57,12 @@ const Favorites = () => {
 
   return(
     <>
-      <NavBar/>
       <PageTitle title={"favorites"} />
       <section className="d-flex flex-row flex-wrap justify-content-center">
         {favoriteMovies.map((movie) => {
           return(
             <Card
+              key ={movie.title}
               movie = {movie}
               btnHandle = {"Remove from Favorites"}
               // removeFav = {handleClickRemoveFavorites(movie.id)}

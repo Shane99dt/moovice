@@ -13,6 +13,7 @@ const App = () => {
   return(
     <>
       <BrowserRouter>
+        <NavBar/>
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/weekly' element={<Weekly/>}/>

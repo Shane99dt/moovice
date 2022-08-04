@@ -8,8 +8,6 @@ const Card = (props) => {
     if (localStorage.favoriteIds){
       const localStorageIds= localStorage.getItem("favoriteIds")
       favorites = JSON.parse(localStorageIds)
-    }else{
-      favorites=[]
     }
 
     const checkId = favorites.find((id)=>{
@@ -24,6 +22,7 @@ const Card = (props) => {
     localStorage.setItem('favoriteIds', stringifiedIds)
   }
 
+  // ahndle remove favorites
   const handleClickRemoveFavorites = (id) => {
     let favorites = []
 
@@ -39,8 +38,8 @@ const Card = (props) => {
 
   return(
     <>
-      <div className="card d-flex col-8 col-sm-5 col-md-4 col-lg-3 m-1">
-        <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.backdrop_path}`} alt={`background ${props.movie.title}`}/>
+      <div className="card d-flex col-12 col-sm-5 col-md-4 col-lg-3 m-1">
+        <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`} alt={`background ${props.movie.title}`}/>
         <div className="card-body">
           <h2 className="card-title text-capitalize">{props.movie.title}</h2>
           <p className="card-text font-weight-bold">{props.movie.release_date}</p>
