@@ -31,7 +31,7 @@ const Weekly = () => {
       <section className="d-flex flex-row flex-wrap justify-content-center">
         {movies.map((movie) => {
           return(
-            <Card movie={movie} key={movie.title} btnHandle={"Add to favorites"} />
+            <Card movie={movie} key={movie.title} btnHandle={"Fav"} />
           )
         })}
       </section>

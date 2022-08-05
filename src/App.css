@@ -75,6 +75,26 @@
   background-color: rgba(255, 255, 255, 0.731);
 }
 
+/* small card */
+.btn-primary-smallCard{
+  flex-grow: 1;
+}
+
+.btn-fav-smallCard{
+  flex-grow: 0;
+}
+
+/* Card */
+.btn-primary-card{
+  flex-grow: 1;
+}
+
+.btn-fav-card{
+  flex-grow: 0;
+}
+
+
+
 /* home page */
 
 .movie-bar{
@@ -87,5 +107,14 @@
 }
 
 .linkSmallCard:visited{
+  color: white;
+}
+
+/* link card */
+.linkCard{
+  color: white;
+}
+
+.linkCard:visited{
   color: white;
 }

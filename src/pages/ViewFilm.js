@@ -15,7 +15,6 @@ const ViewFilm = () => {
   const fetchMovie = async () => {
     const request = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=8bf0372ddd1eb53a0909b7e274ee5973`)
     const response = await request.json()
-    console.log(response)
     setMovie(response)
   }
 
@@ -59,14 +58,13 @@ const ViewFilm = () => {
             <div className="mt-md-0 mt-4 ml-md-4">
               <div className="m-0">
                 <h2 className="m-0">{movie.original_title}</h2>
-                <p className="m-0">{movie.runtime}mins</p>
+                <p className="m-0">{movie.runtime} mins</p>
               </div>
               <small className="m-0">{movie.title}</small>
 
               <h5 className="mt-3 m-0">Released: {movie.release_date}</h5>
               <p>{movie.status}</p>
 
-              <h5></h5>
               <p>{movie.overview}</p>
               <p>Budget: ${movie.budget}</p>
               <p>Revenue: ${movie.revenue}</p>

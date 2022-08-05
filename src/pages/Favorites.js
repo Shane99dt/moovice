@@ -50,7 +50,7 @@ const Favorites = () => {
             <Card
               key ={movie.id}
               movie = {movie}
-              btnHandle = {"Remove from Favorites"}
+              btnHandle = {"Remove"}
               fetchFavs = {fetchFavs}
             />
           )

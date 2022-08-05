@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Card = (props) => {
 
@@ -47,9 +48,18 @@ const Card = (props) => {
             <p className="card-text font-weight-bold">Released: {props.movie.release_date}</p>
             <p className="card-text">{props.movie.overview}</p>
           </div>
-          <button className="btn btn-primary mb-3 card-button mx-2"
-            onClick={()=> {props.btnHandle === "Add to favorites" ? (handleClickAddToFavorites()) : (handleClickRemoveFavorites())}}
-            >{props.btnHandle}</button>
+          <div className="d-flex flex-row mb-3 mx-2">
+            <button className="btn-primary btn-primary-card border-0 rounded p-2 mr-1"
+              >
+              <Link className='linkCard' to={`/viewfilm/${props.movie.id}`} >
+                Description
+              </Link>
+                </button>
+            <button className="btn btn-primary border-danger bg-danger btn-fav-card col-md-4 col-3"
+              onClick={()=> {props.btnHandle === "Fav" ? (handleClickAddToFavorites()) : (handleClickRemoveFavorites())}}
+              >{props.btnHandle}</button>
+
+          </div>
         </div>
       </div>
     </>

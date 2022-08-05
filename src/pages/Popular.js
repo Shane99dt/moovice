@@ -33,7 +33,7 @@ const Popular = () => {
             <Card
               key ={movie.title}
               movie = {movie}
-              btnHandle = {"Add to favorites"}
+              btnHandle = {"Fav"}
             />
           )
         })}

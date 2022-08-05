@@ -43,14 +43,14 @@ const SmallCard = (props) => {
           <div className="card-body">
             <p className="card-title text-capitalize font-weight-bold">{props.movie.title}</p>
           </div>
-          <div className="d-flex justify-content-between mb-3 mx-2">
-            <button className="btn-primary border-0 rounded p-2"
+          <div className="d-flex mb-3 mx-2">
+            <button className="btn-primary btn-primary-smallCard border-0 rounded p-2 mr-1"
             >
             <Link className='linkSmallCard' to={`/viewfilm/${props.movie.id}`} >
               Description
             </Link>
               </button>
-            <button className="btn-primary bg-danger border-0 rounded p-2" onClick={handleClickAddToFavorites}>Fav</button>
+            <button className="btn-primary btn-fav-smallCard bg-danger border-0 rounded p-2 col-md-4 col-3" onClick={handleClickAddToFavorites}>Fav</button>
             {/* <HeartToggle/> */}
           </div>
         </div>
