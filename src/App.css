@@ -60,6 +60,15 @@
   transform: translate(-50%, -50%);
 }
 
+/* loader sec film bar */
+.loader-sec-film{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: auto;
+}
+
 /* loader finished */
 
 .card{
@@ -71,4 +80,5 @@
 .movie-bar{
   width: 90%;
   overflow-x: scroll;
+  height: auto;
 }
