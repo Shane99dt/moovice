@@ -62,11 +62,11 @@
 
 /* loader sec film bar */
 .loader-sec-film{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  padding: auto;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 
 /* loader finished */
@@ -78,7 +78,14 @@
 /* home page */
 
 .movie-bar{
-  width: 90%;
   overflow-x: scroll;
   height: auto;
+}
+
+.linkSmallCard{
+  color: white;
+}
+
+.linkSmallCard:visited{
+  color: white;
 }

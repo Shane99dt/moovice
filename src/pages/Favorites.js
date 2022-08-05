@@ -48,7 +48,7 @@ const Favorites = () => {
         {favoriteMovies.map((movie) => {
           return(
             <Card
-              key ={movie.title}
+              key ={movie.id}
               movie = {movie}
               btnHandle = {"Remove from Favorites"}
               fetchFavs = {fetchFavs}

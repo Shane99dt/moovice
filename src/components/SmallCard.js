@@ -1,9 +1,12 @@
-import heartImg from '../images/love.png'
+// import heartImg from '../images/love.png'
 import HeartToggle from './HeartToggle'
+import '../heart.less';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 const SmallCard = (props) => {
 
-  const handleClickAddToFavorites = (currentId) =>{
+  const handleClickAddToFavorites = () =>{
 
     let favorites = []
 
@@ -13,30 +16,43 @@ const SmallCard = (props) => {
     }
 
     const checkId = favorites.find((id)=>{
-      return (id === currentId)
+      return (id === props.movie.id)
     })
 
     if(!checkId){
-      favorites.push(currentId)
+      favorites.push(props.movie.id)
     }
 
     const stringifiedIds = JSON.stringify(favorites)
     localStorage.setItem('favoriteIds', stringifiedIds)
   }
 
+  // const navigate = useNavigate()
+
+  // const handleClickViewFilm = () => {
+  //   navigate(`./viewfilm`)
+  //   console.log(props.movie.id)
+  // }
+
 
   return(
     <>
-      <div className="card d-flex col-10 col-sm-5 col-md-4 col-lg-3 m-1 h">
-        <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`} alt={`background ${props.movie.title}`}/>
-        <div className="card-body">
-          <p className="card-title text-capitalize font-weight-bold">{props.movie.title}</p>
-        </div>
-        <div className="d-flex justify-content-between mb-3">
-          <button className="btn btn-primary card-button"
-            >Description</button>
-          {/* <button className="heartBtn border-0 bg-transparent"></button> */}
-          <HeartToggle/>
+      <div className='col-10 col-sm-5 col-md-4 col-lg-3 p-2'>
+        <div className="card d-flex h-100">
+          <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`} alt={`background ${props.movie.title}`}/>
+          <div className="card-body">
+            <p className="card-title text-capitalize font-weight-bold">{props.movie.title}</p>
+          </div>
+          <div className="d-flex justify-content-between mb-3 mx-2">
+            <button className="btn-primary border-0 rounded p-2"
+            >
+            <Link className='linkSmallCard' to={`/viewfilm/${props.movie.id}`} >
+              Description
+            </Link>
+              </button>
+            <button className="btn-primary bg-danger border-0 rounded p-2" onClick={handleClickAddToFavorites}>Fav</button>
+            {/* <HeartToggle/> */}
+          </div>
         </div>
       </div>
     </>
