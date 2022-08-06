@@ -40,7 +40,9 @@ const SmallCard = (props) => {
               Description
             </Link>
               </button>
-            <button className="btn-primary btn-fav-smallCard bg-danger border-0 rounded p-2 col-md-4 col-3" onClick={handleClickAddToFavorites}>Fav</button>
+            <button className="btn-primary btn-fav-smallCard bg-danger border-0 rounded p-2 col-md-4 col-3" onClick={handleClickAddToFavorites}>
+              Fav
+            </button>
           </div>
         </div>
       </div>

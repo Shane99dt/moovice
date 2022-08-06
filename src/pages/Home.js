@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import LoadingAnimation from "../components/LoadingAnimation"
 import LoadingAnimationFilmBar from "../components/LoadingAnimationFilmBar"
 import PageTitle from "../components/PageTitle"
 import SmallCard from "../components/SmallCard"
@@ -49,8 +48,8 @@ const Home = () => {
       <PageTitle title={"home"}/>
 
         {/* Latest */}
-      <section className="mt-5">
-        <h3>Latest</h3>
+      <section className="mt-2">
+        <h3 className="home-title" >Latest</h3>
         <article className="movie-bar top-rated d-flex flex-row ">
         { !latest ?
           (
@@ -73,10 +72,16 @@ const Home = () => {
 
       {/* topRated */}
       <section className="mt-5">
-        <h3>Top Rated</h3>
+        <h3 className="home-title" >Top Rated</h3>
         <article className="movie-bar top-rated d-flex flex-row ">
           { !topRated ?
-          (<LoadingAnimation/>) :(
+          (<>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+            </>) :(
           topRated.map((movie) => {
             return(
               <SmallCard movie={movie} key={movie.id}/>
@@ -88,10 +93,16 @@ const Home = () => {
 
       {/* Now playing */}
       <section className="mt-5">
-        <h3>Now playing</h3>
+        <h3 className="home-title" >Now playing</h3>
         <article className="movie-bar top-rated d-flex flex-row ">
         { !nowPlaying ?
-          (<LoadingAnimation/>) :(
+          (<>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+            </>) :(
           nowPlaying.map((movie) => {
             return(
               <SmallCard movie={movie} key={movie.id}/>
@@ -103,10 +114,16 @@ const Home = () => {
 
       {/* Upcoming */}
       <section className="mt-5">
-        <h3>Upcoming</h3>
+        <h3 className="home-title" >Upcoming</h3>
         <article className="movie-bar top-rated d-flex flex-row">
         { !upcoming ?
-          (<LoadingAnimation/>) :(
+          (<>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+              <LoadingAnimationFilmBar/>
+            </>) :(
           upcoming.map((movie) => {
             return(
               <SmallCard movie={movie} key={movie.id}/>

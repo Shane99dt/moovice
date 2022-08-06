@@ -1,7 +1,7 @@
 const PageTitle = (props) =>{
   return(
     <>
-      <h1 className="text-capitalize">{props.title}</h1>
+      <h1 className="text-capitalize page-title">{props.title}</h1>
     </>
   )
 }
