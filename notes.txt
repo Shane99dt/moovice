@@ -52,3 +52,21 @@
     "vote_average": 8.723,
     "vote_count": 21930
 }
+
+
+
+
+
+
+
+
+
+
+backdrop_path style
+
+        style={{
+          backgroundImage : `url(https://image.tmdb.org/t/p/w300/${movie.backdrop_path})`,
+          backgroundPosition : 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+           }}

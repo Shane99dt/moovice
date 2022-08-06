@@ -1,5 +1,3 @@
-import HeartToggle from "./HeartToggle"
-
 const LoadingAnimationFilmBar = () => {
   return(
     <>
@@ -14,8 +12,6 @@ const LoadingAnimationFilmBar = () => {
         <div className="d-flex justify-content-between mb-3">
           <button className="btn-primary border-0 rounded p-2"
             >Description</button>
-          {/* <button className="heartBtn border-0 bg-transparent"></button> */}
-          {/* <HeartToggle/> */}
         </div>
       </div>
     </>

@@ -1,7 +1,4 @@
-// import heartImg from '../images/love.png'
-import HeartToggle from './HeartToggle'
-import '../heart.less';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const SmallCard = (props) => {
@@ -27,21 +24,14 @@ const SmallCard = (props) => {
     localStorage.setItem('favoriteIds', stringifiedIds)
   }
 
-  // const navigate = useNavigate()
-
-  // const handleClickViewFilm = () => {
-  //   navigate(`./viewfilm`)
-  //   console.log(props.movie.id)
-  // }
-
 
   return(
     <>
       <div className='col-10 col-sm-5 col-md-4 col-lg-3 p-2'>
         <div className="card d-flex h-100">
           <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`} alt={`background ${props.movie.title}`}/>
-          <div className="card-body">
-            <p className="card-title text-capitalize font-weight-bold">{props.movie.title}</p>
+          <div className="card-body mb-0 pb-0">
+            <h5 className="card-title text-capitalize mb-0 pb-2">{props.movie.title}</h5>
           </div>
           <div className="d-flex mb-3 mx-2">
             <button className="btn-primary btn-primary-smallCard border-0 rounded p-2 mr-1"
@@ -51,7 +41,6 @@ const SmallCard = (props) => {
             </Link>
               </button>
             <button className="btn-primary btn-fav-smallCard bg-danger border-0 rounded p-2 col-md-4 col-3" onClick={handleClickAddToFavorites}>Fav</button>
-            {/* <HeartToggle/> */}
           </div>
         </div>
       </div>
