@@ -142,6 +142,11 @@
   text-decoration: none;
 }
 
+a:hover{
+  text-decoration: none;
+  text-transform: none;
+}
+
 .linkCard:visited{
   color: white;
 }

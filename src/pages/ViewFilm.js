@@ -60,7 +60,10 @@ const ViewFilm = () => {
       <div className="film-background mt-md-5 mt-3">
         <section>
           <article className="d-flex flex-md-row flex-column px-md-0 px-2">
-            <img src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt={movie.title}/>
+            <img
+            src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
+            // src={movie.poster_path ?(`https://image.tmdb.org/t/p/w300/${movie.poster_path}`):('https://www.pngall.com/wp-content/uploads/1/Film-High-Quality-PNG.png')}
+            alt={movie.title} className='col-12 col-sm-6 col-md-4 col-xl-4'/>
             <div className="mt-md-0 mt-4 ml-md-4">
               <div className="m-0">
                 <h2 className="m-0">{movie.original_title}</h2>

@@ -42,6 +42,7 @@ const Card = (props) => {
   return(
     <>
       <div className="p-1 col-12 col-sm-5 col-md-4 col-xl-3">
+        <Link to={`/viewfilm/${props.movie.id}`}>
         <div className="card d-flex h-100">
           <img className="img-fluid align-self-center pt-2"
           src={props.movie.poster_path ?(`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`):('https://www.pngall.com/wp-content/uploads/1/Film-High-Quality-PNG.png')}
@@ -61,6 +62,7 @@ const Card = (props) => {
 
           </div>
         </div>
+        </Link>
       </div>
     </>
   )
