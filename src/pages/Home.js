@@ -48,7 +48,7 @@ const Home = () => {
         {/* Latest */}
       <section className="mt-2">
         <h3 className="home-title" >Latest</h3>
-        <article className="movie-bar top-rated d-flex flex-row ">
+        <article className="latest d-flex flex-row ">
         { !latest ?
           (
             <>
@@ -56,11 +56,6 @@ const Home = () => {
             </>
           ) :(
               <SmallCard movie={latest} key={latest.id}/>
-          // latest.map((movie) => {
-          //   return(
-          //     <SmallCard movie={movie} key={movie.id}/>
-          //     )
-          //   })
             )}
         </article>
       </section>
@@ -89,7 +84,7 @@ const Home = () => {
       {/* Now playing */}
       <section className="mt-5">
         <h3 className="home-title" >Now playing</h3>
-        <article className="movie-bar top-rated d-flex flex-row ">
+        <article className="movie-bar now-playing d-flex flex-row ">
         { !nowPlaying ?
           (<>
               <LoadingAnimationFilmBar/>
@@ -110,7 +105,7 @@ const Home = () => {
       {/* Upcoming */}
       <section className="mt-5">
         <h3 className="home-title" >Upcoming</h3>
-        <article className="movie-bar top-rated d-flex flex-row">
+        <article className="movie-bar upcoming d-flex flex-row">
         { !upcoming ?
           (<>
               <LoadingAnimationFilmBar/>
