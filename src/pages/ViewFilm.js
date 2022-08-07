@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import LoadingAnimation from "../components/LoadingAnimation"
+import SmallCard from "../components/SmallCard"
 
 
 const ViewFilm = () => {
 
   const params = useParams()
   const [movie, setMovie] = useState(null)
+  const [similiar, setSimiliar] = useState(null)
 
   useEffect(() => {
     fetchMovie()
@@ -16,6 +18,10 @@ const ViewFilm = () => {
     const request = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=8bf0372ddd1eb53a0909b7e274ee5973`)
     const response = await request.json()
     setMovie(response)
+
+    const requestSimiliar = await fetch(`https://api.themoviedb.org/3/movie/${params.id}/similar?api_key=8bf0372ddd1eb53a0909b7e274ee5973&page=1`)
+    const responseSimiliar = await requestSimiliar.json()
+    setSimiliar(responseSimiliar.results)
   }
 
   // add to favs
@@ -72,8 +78,19 @@ const ViewFilm = () => {
             </div>
           </article>
         </section>
+        {similiar &&
+          <section className="my-5">
+            <h1 className="mb-3 home-title">Similiar movies</h1>
+            <article className="movie-bar top-rated d-flex flex-row ">
+              {similiar.map((movie) => {
+                return(
+                  <SmallCard movie={movie} key={movie.id}/>
+                  )
+                })}
+            </article>
+          </section>
+        }
       </div>
-
     </>
   )
 }

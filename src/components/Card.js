@@ -43,19 +43,18 @@ const Card = (props) => {
     <>
       <div className="p-1 col-12 col-sm-5 col-md-4 col-xl-3">
         <div className="card d-flex h-100">
-          <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`} alt={`background ${props.movie.title}`}/>
+          <img className="img-fluid align-self-center pt-2"
+          src={props.movie.poster_path ?(`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`):('https://www.pngall.com/wp-content/uploads/1/Film-High-Quality-PNG.png')}
+          alt={`background ${props.movie.title}`}/>
           <div className="card-body">
             <h2 className="card-title text-capitalize">{props.movie.title}</h2>
             <p className="card-text font-weight-bold">Released: {props.movie.release_date}</p>
-            <p className="card-text">{props.movie.overview}</p>
+            <p className="card-text line-clamp-4">{props.movie.overview}</p>
           </div>
           <div className="d-flex flex-row mb-3 mx-2">
-            <button className="btn-primary btn-primary-card border-0 rounded p-2 mr-1"
-              >
-              <Link className='linkCard' to={`/viewfilm/${props.movie.id}`}>
-                Description
-              </Link>
-                </button>
+            <Link className='linkCard btn-primary-card border-0 rounded py-2 px-3 mr-1' to={`/viewfilm/${props.movie.id}`}>
+              Description
+            </Link>
             <button className="btn btn-primary border-danger bg-danger btn-fav-card col-md-4 col-3"
               onClick={()=> {props.btnHandle === "Fav" ? (handleClickAddToFavorites()) : (handleClickRemoveFavorites())}}
               >{props.btnHandle}</button>

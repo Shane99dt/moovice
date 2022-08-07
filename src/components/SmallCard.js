@@ -24,22 +24,23 @@ const SmallCard = (props) => {
     localStorage.setItem('favoriteIds', stringifiedIds)
   }
 
+  // {!`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}` && 'https://www.pngall.com/wp-content/uploads/1/Film-High-Quality-PNG.png'}
+
 
   return(
     <>
       <div className='col-10 col-sm-5 col-md-4 col-lg-3 p-2'>
         <div className="card d-flex h-100">
-          <img className="img-fluid align-self-center pt-2" src={`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`} alt={`background ${props.movie.title}`}/>
+          <img className="img-fluid align-self-center pt-2"
+          src={props.movie.poster_path ?(`https://image.tmdb.org/t/p/w300/${props.movie.poster_path}`):('https://www.pngall.com/wp-content/uploads/1/Film-High-Quality-PNG.png')}
+          alt={`background ${props.movie.title}`}/>
           <div className="card-body mb-0 pb-0">
             <h5 className="card-title text-capitalize mb-0 pb-2">{props.movie.title}</h5>
           </div>
           <div className="d-flex mb-3 mx-2">
-            <button className="btn-primary btn-primary-smallCard border-0 rounded p-2 mr-1"
-            >
-            <Link className='linkSmallCard' to={`/viewfilm/${props.movie.id}`} >
+            <Link className='linkSmallCard btn-primary-smallCard border-0 rounded py-2 px-4 mr-1' to={`/viewfilm/${props.movie.id}`}>
               Description
             </Link>
-              </button>
             <button className="btn-primary btn-fav-smallCard bg-danger border-0 rounded p-2 col-md-4 col-3" onClick={handleClickAddToFavorites}>
               Fav
             </button>

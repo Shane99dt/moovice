@@ -19,7 +19,7 @@ const Home = () => {
     const requestLatest = await fetch(`https://api.themoviedb.org/3/movie/latest?api_key=8bf0372ddd1eb53a0909b7e274ee5973&language=en-US`)
 
     const responseLatest = await requestLatest.json()
-    setLatest(responseLatest.results)
+    setLatest(responseLatest)
 
     // top rated
     const requestTopRated = await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=8bf0372ddd1eb53a0909b7e274ee5973&page=1`)
@@ -38,8 +38,6 @@ const Home = () => {
 
     const responseUpcoming = await requestUpcoming.json()
     setUpcoming(responseUpcoming.results)
-
-
   }
 
 
@@ -55,17 +53,14 @@ const Home = () => {
           (
             <>
               <LoadingAnimationFilmBar/>
-              <LoadingAnimationFilmBar/>
-              <LoadingAnimationFilmBar/>
-              <LoadingAnimationFilmBar/>
-              <LoadingAnimationFilmBar/>
             </>
           ) :(
-          latest.map((movie) => {
-            return(
-              <SmallCard movie={movie} key={movie.id}/>
-              )
-            })
+              <SmallCard movie={latest} key={latest.id}/>
+          // latest.map((movie) => {
+          //   return(
+          //     <SmallCard movie={movie} key={movie.id}/>
+          //     )
+          //   })
             )}
         </article>
       </section>

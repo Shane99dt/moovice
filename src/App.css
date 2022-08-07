@@ -79,6 +79,11 @@
 /* small card */
 .btn-primary-smallCard{
   flex-grow: 1;
+  background-color: rgba(72, 72, 99, 0.568);
+}
+
+.btn-primary-smallCard:hover{
+  background-color: rgba(72, 72, 99, 0.829);
 }
 
 .btn-fav-smallCard{
@@ -88,13 +93,24 @@
 /* Card */
 .btn-primary-card{
   flex-grow: 1;
+  background-color: rgba(72, 72, 99, 0.568);
+}
+
+.btn-primary-card:hover{
+  background-color: rgba(72, 72, 99, 0.829);
 }
 
 .btn-fav-card{
   flex-grow: 0;
 }
 
-
+.line-clamp-4 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* truncate to 4 lines */
+  -webkit-line-clamp: 4;
+}
 
 /* home page */
 
@@ -107,6 +123,11 @@
   color: white;
 }
 
+.linkSmallCard:hover{
+  color: #a49f9f;
+  text-decoration: none;
+}
+
 .linkSmallCard:visited{
   color: white;
 }
@@ -114,6 +135,11 @@
 /* link card */
 .linkCard{
   color: white;
+}
+
+.linkCard:hover{
+  color: #a49f9f;
+  text-decoration: none;
 }
 
 .linkCard:visited{
@@ -137,4 +163,9 @@
 .home-title{
   color: #a6b3c0;
   text-shadow: 0 0 1px #FFFFFF, 1px 0px 1px rgba(206,206,206,0.82);
+}
+
+/* view film */
+.film-background{
+  color: rgba(255, 255, 255, 0.717);
 }
