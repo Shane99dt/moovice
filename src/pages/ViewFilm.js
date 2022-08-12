@@ -5,14 +5,13 @@ import SmallCard from "../components/SmallCard"
 
 
 const ViewFilm = () => {
-
   const params = useParams()
   const [movie, setMovie] = useState(null)
   const [similiar, setSimiliar] = useState(null)
 
   useEffect(() => {
     fetchMovie()
-  }, [])
+  }, [params])
 
   const fetchMovie = async () => {
     const request = await fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=8bf0372ddd1eb53a0909b7e274ee5973`)
