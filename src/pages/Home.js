@@ -69,7 +69,7 @@ const Home = () => {
     <>
       <PageTitle title={"home"}/>
 
-        {/* Latest */}
+      {/* Latest */}
       <section className="mt-2">
         <h3 className="home-title" >Latest</h3>
         <article className="latest d-flex flex-row ">

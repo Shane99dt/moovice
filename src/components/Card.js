@@ -1,41 +1,77 @@
+import { useState } from "react"
 import { Link } from "react-router-dom"
+import HeartToggle from "./HeartToggle"
 
 const Card = (props) => {
+  const [ status, setStatus ] = useState(false)
 
-  const handleClickAddToFavorites = () =>{
 
-    let favorites = []
-
-    if (localStorage.favoriteIds){
+  const handleChange = e => {
+    if(e.target.checked){
+      setStatus(true)
+      let favorites = []
+        if (localStorage.favoriteIds){
+        const localStorageIds= localStorage.getItem("favoriteIds")
+        favorites = JSON.parse(localStorageIds)
+      }
+        const checkId = favorites.find((id)=>{
+        return (id === props.movie.id)
+      })
+        if(!checkId){
+        favorites.push(props.movie.id)
+      }
+        const stringifiedIds = JSON.stringify(favorites)
+      localStorage.setItem('favoriteIds', stringifiedIds)
+    }else{
+      setStatus(false)
+      let favorites = []
       const localStorageIds= localStorage.getItem("favoriteIds")
+
       favorites = JSON.parse(localStorageIds)
+      favorites.splice(favorites.indexOf(props.movie.id), 1)
+
+      const stringifiedIds = JSON.stringify(favorites)
+      localStorage.setItem('favoriteIds', stringifiedIds)
+      if(props.fetchFavs){
+        props.fetchFavs(favorites)
+      }
     }
-
-    const checkId = favorites.find((id)=>{
-      return (id === props.movie.id)
-    })
-
-    if(!checkId){
-      favorites.push(props.movie.id)
-    }
-
-    const stringifiedIds = JSON.stringify(favorites)
-    localStorage.setItem('favoriteIds', stringifiedIds)
   }
 
-  // handle remove favorites
-  const handleClickRemoveFavorites = () => {
-    let favorites = []
+  // const handleClickAddToFavorites = () =>{
 
-    const localStorageIds= localStorage.getItem("favoriteIds")
-    favorites = JSON.parse(localStorageIds)
+  //   let favorites = []
 
-    favorites.splice(favorites.indexOf(props.movie.id), 1)
+  //   if (localStorage.favoriteIds){
+  //     const localStorageIds= localStorage.getItem("favoriteIds")
+  //     favorites = JSON.parse(localStorageIds)
+  //   }
 
-    const stringifiedIds = JSON.stringify(favorites)
-    localStorage.setItem('favoriteIds', stringifiedIds)
-    props.fetchFavs(favorites)
-  }
+  //   const checkId = favorites.find((id)=>{
+  //     return (id === props.movie.id)
+  //   })
+
+  //   if(!checkId){
+  //     favorites.push(props.movie.id)
+  //   }
+
+  //   const stringifiedIds = JSON.stringify(favorites)
+  //   localStorage.setItem('favoriteIds', stringifiedIds)
+  // }
+
+  // // handle remove favorites
+  // const handleClickRemoveFavorites = () => {
+  //   let favorites = []
+
+  //   const localStorageIds= localStorage.getItem("favoriteIds")
+  //   favorites = JSON.parse(localStorageIds)
+
+  //   favorites.splice(favorites.indexOf(props.movie.id), 1)
+
+  //   const stringifiedIds = JSON.stringify(favorites)
+  //   localStorage.setItem('favoriteIds', stringifiedIds)
+  //   props.fetchFavs(favorites)
+  // }
 
 
 
@@ -51,13 +87,14 @@ const Card = (props) => {
             <p className="card-text font-weight-bold">Released: {props.movie.release_date}</p>
             <p className="card-text line-clamp-4">{props.movie.overview}</p>
           </div>
-          <div className="d-flex flex-row mb-3 mx-2">
+          <div className="d-flex flex-row mb-3 mx-2 align-items-center">
             <Link className='linkCard btn-primary-card border-0 rounded py-2 px-3 mr-1' to={`/viewfilm/${props.movie.id}`}>
               Description
             </Link>
-            <button className="btn btn-primary border-danger bg-danger btn-fav-card col-md-4 col-3"
+            {/* <button className="btn btn-primary border-danger bg-danger btn-fav-card col-md-4 col-3"
               onClick={()=> {props.btnHandle === "Fav" ? (handleClickAddToFavorites()) : (handleClickRemoveFavorites())}}
-              >{props.btnHandle}</button>
+              >{props.btnHandle}</button> */}
+            <HeartToggle handleChange={handleChange} status={status} />
 
           </div>
         </div>
