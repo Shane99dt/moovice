@@ -94,7 +94,7 @@ const Card = (props) => {
             {/* <button className="btn btn-primary border-danger bg-danger btn-fav-card col-md-4 col-3"
               onClick={()=> {props.btnHandle === "Fav" ? (handleClickAddToFavorites()) : (handleClickRemoveFavorites())}}
               >{props.btnHandle}</button> */}
-            <HeartToggle handleChange={handleChange} status={status} />
+            <HeartToggle handleChange={handleChange} checked={props.movie.id} />
 
           </div>
         </div>

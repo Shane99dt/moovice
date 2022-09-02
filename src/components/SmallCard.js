@@ -49,7 +49,7 @@ const SmallCard = (props) => {
     }else{
       setStatus(false)
       let favorites = []
-      const localStorageIds= localStorage.getItem("favoriteIds")
+      const localStorageIds = localStorage.getItem("favoriteIds")
 
       favorites = JSON.parse(localStorageIds)
       favorites.splice(favorites.indexOf(props.movie.id), 1)
@@ -79,7 +79,8 @@ const SmallCard = (props) => {
             {/* <button className="btn-primary btn-fav-smallCard bg-danger border-0 rounded p-2 col-md-4 col-3" onClick={handleClickAddToFavorites}>
               Fav
             </button> */}
-            <HeartToggle handleChange={handleChange} status={status}/>
+            <HeartToggle handleChange={handleChange} checked={props.movie.id}/>
+            {/*  jouer avec le local sorage */}
           </div>
         </div>
       </div>
